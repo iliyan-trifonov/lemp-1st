@@ -2,7 +2,7 @@ Docker LEMP Stack
 ===
 5 Containers, 2 for data, 3 for nginx/php/mysql. Custom MySQL datadir. Only the webserver port 8080 is open, all containers use linking between them.
 ---
-Tested under Ubuntu 12.04/12.10 and CoreOS in Virtualbox or installed on a phisical server with Docker version 0.8.0.
+Tested under Ubuntu 12.04/12.10 and CoreOS in Virtualbox or installed on a physical server with Docker version 0.8.0.
 
 These scripts create a development environment but with a few security tweaks you can put it in production.
 
@@ -18,7 +18,7 @@ that use them are started with no custom CMD:
 `/etc/nginx/sites-enabled/default` is updated with the IP of the container that runs the php5-fpm.
 
 `/sites/mysqlserverip.php` is updated when the PHP Server Container is started and this file is included and used in the
-php scripts that have to comunicate with the MySQL Server. The php file  just defines the `MYSQLSERVERADDR` php constant.
+php scripts that have to communicate with the MySQL Server. The php file  just defines the `MYSQLSERVERADDR` php constant.
 
 `phpMyAdmin-4.1.7-all-languages` package is downloaded automatically and configured with the right server IP
 in the place of `localhost` again using the /sites/mysqlserverip.php file from above.
@@ -27,10 +27,10 @@ If you run MySQL inside a container like this: `/usr/bin/mysqld_safe &`
 you will have to use `mysqladmin -uroot -h127.0.0.1 --protocol=tcp shutdown` to stop it instead of killing it
 
 If Ctrl-c and Ctrl-z don't work, try using Ctrl-\ to stop a program running in the foreground.
-If nothign is working, just kill/stop/start/run the container again.
+If nothing is working, just kill/stop/start/run the container again.
 
 If you want to change something inside a container and re-run it, use attach if possible or run the image with CMD bash,
-make your changes, run the server process and detach with Ctrl-p + Ctrl-q. From here you can commit the continer with a
+make your changes, run the server process and detach with Ctrl-p + Ctrl-q. From here you can commit the container with a
 new tag or name and re-run it with the new configuration automatically set.
 
 You can start/stop/rm/run any of the 3 running containers and the links between them are not lost. the IPs stay the same
@@ -45,16 +45,16 @@ For example, I used the MySQL container in a master-master replication with the 
 - run a new one with `bash` as CMD
 - `scp` from the host's backup dir to the container's temporary one
 - edit `/etc/mysql/my.cnf` and put the needed configuration
-- import of the DBs in the conainer
+- import of the DBs in the container
 - then use `http://localhost:8080/phpmyadmin/` to configure the replication settings of the container's MySQL server.
 - restart the container's MySQL server and detach.
 
 If you want to put this in production, take care of some things: the MySQL server is very open so it needs some users
-to be removed and some created with restriction to specific container IP and good paswords.
+to be removed and some created with restriction to specific container IP and good passwords.
 
 ### How to use it (Ubuntu example):
 
-You need to have the curl package:
+You need to have the curl package installed:
 
 `sudo apt-get update && sudo apt-get install -qq curl`
 
@@ -86,7 +86,7 @@ Before installing anything make sure you use the fastest deb sources (requires r
 
 `echo "deb mirror://mirrors.ubuntu.com/mirrors.txt precise main restricted universe multiverse" > /etc/apt/sources.list && echo "deb mirror://mirrors.ubuntu.com/mirrors.txt precise-updates main restricted universe multiverse" >> /etc/apt/sources.list && echo "deb mirror://mirrors.ubuntu.com/mirrors.txt precise-backports main restricted universe multiverse" >> /etc/apt/sources.list && echo "deb mirror://mirrors.ubuntu.com/mirrors.txt precise-security main restricted universe multiverse" >> /etc/apt/sources.list`
 
-You may need the latest kernel installed and running on your system to fullfill Docker's and LXC requirements:
+You may need the latest kernel installed and running on your system to fulfill Docker's and LXC requirements:
 
 `sudo apt-get update && sudo apt-get install -qq linux-generic-lts-raring && sudo grub-update`
 
@@ -118,4 +118,3 @@ Build more containers from the same images and try configuring and using replica
 Use different SQL and No-SQL databases in another containers and link them to the existing ones.
 
 Create another host with docker somewhere else and link securely the containers from one host to another.
-
