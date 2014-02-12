@@ -1,7 +1,7 @@
 Docker LEMP Stack
 ===
-5 Containers, 2 for data, 3 for nginx/php/mysql. Custom MySQL datadir. Only the webserver port 8080 is open, all containers use linking between them.
----
+### 5 Containers, 2 for data, 3 for nginx/php/mysql. Custom MySQL datadir. Only the webserver port 8080 is open, all containers use linking between them.
+
 Tested under Ubuntu 12.04/12.10 and CoreOS in Virtualbox or installed on a physical server with Docker version 0.8.0.
 
 These scripts create a development environment but with a few security tweaks you can put it in production.
