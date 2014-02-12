@@ -8,6 +8,8 @@ These scripts create a development environment but with a few security tweaks yo
 
 Check [docker.io](http://docker.io "Docker official") for more information about this great revolutionary  app!
 
+#### [Click here for a video showing the installation of the containers from this project.](https://asciinema.org/a/7594)
+
 ## 1st: The interesting stuff
 Using the -link and -expose params is one of the best features I've found with Docker and so I used them everywhere!
 
