@@ -6,8 +6,10 @@ Tested under Ubuntu 12.04/12.10 and CoreOS in Virtualbox or installed on a physi
 
 These scripts create a development environment but with a few security tweaks you can put it in production.
 
+Check [docker.io](http://docker.io "Docker official") for more information about this great revolutionary  app!
+
 ## 1st: The interesting stuff
-Using the -link and -expose params is one of the best features I've found with Docker.
+Using the -link and -expose params is one of the best features I've found with Docker and so I used them everywhere!
 
 Of course I wanted to make everything as suggested in the docs so I used data volumes too:
 one for the MySQL data dir and one for the web pages.
@@ -54,9 +56,12 @@ to be removed and some created with restriction to specific container IP and goo
 
 ### How to use it (Ubuntu example):
 
-You need to have the curl package installed:
+The main requirement is to have Docker installed and running on your system. See the section below about
+installing it under Ubuntu.
 
-`sudo apt-get update && sudo apt-get install -qq curl`
+Also you need to have the curl and git packages installed:
+
+`sudo apt-get update && sudo apt-get install -qq curl git`
 
 Get the latest build script from GitHub:
 
@@ -79,9 +84,10 @@ The above script will kill and remove all containers and images created by the b
 That's it! You now have 3 running containers using 2 data volumes.
 Use `http://localhost:8080` to connect to the root of the web server and `http://localhost:8080/phpmyadmin/` to manage the MySQL DB.
 
-### Install LXC Docker on Ubuntu 12.04:
+### Install lxc Docker under Ubuntu 12.04:
 
 Skip this if you have deb sources hosted on the local network for example: on your hosting provider.
+
 Before installing anything make sure you use the fastest deb sources (requires root):
 
 `echo "deb mirror://mirrors.ubuntu.com/mirrors.txt precise main restricted universe multiverse" > /etc/apt/sources.list && echo "deb mirror://mirrors.ubuntu.com/mirrors.txt precise-updates main restricted universe multiverse" >> /etc/apt/sources.list && echo "deb mirror://mirrors.ubuntu.com/mirrors.txt precise-backports main restricted universe multiverse" >> /etc/apt/sources.list && echo "deb mirror://mirrors.ubuntu.com/mirrors.txt precise-security main restricted universe multiverse" >> /etc/apt/sources.list`
