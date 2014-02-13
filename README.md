@@ -84,7 +84,7 @@ Or if you already executed the build once:
 The above script will kill and remove all containers and images created by the build script and run the build again.
 
 That's it! You now have 3 running containers using 2 data volumes.
-Use `http://localhost:8080` to connect to the root of the web server and `http://localhost:8080/phpmyadmin/` to manage the MySQL DB.
+Use `http://localhost:8080` to connect to the root of the web server and `http://localhost:8080/phpmyadmin/` to manage the MySQL DB (user and pass: docker/docker).
 
 ### Install lxc Docker under Ubuntu 12.04:
 
