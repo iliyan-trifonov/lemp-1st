@@ -6,7 +6,7 @@ RUN apt-get update && apt-get install -qq php5-fpm php5-mysqlnd php5-json php5-g
 
 RUN sed -i 's|listen.*=.*|listen=9000|' /etc/php5/fpm/pool.d/www.conf
 
-RUN sed -i 's|#cgi.fix_pathinfo=1|cgi.fix_pathinfo=0|' /etc/php5/fpm/php.ini
+RUN sed -i 's|;cgi.fix_pathinfo=1|cgi.fix_pathinfo=0|' /etc/php5/fpm/php.ini
 
 ADD setmysqlip.sh /setmysqlip.sh
 
